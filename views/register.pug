@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  .auth-form
+    h1 Регистрация
+    form(id="registerForm")
+      input(name="email" type="email" placeholder="Email" required)
+      input(name="password" type="password" placeholder="Пароль" required)
+      input(name="confirmPassword" type="password" placeholder="Повторите пароль" required)
+      button(type="submit") Зарегистрироваться
+    p Уже есть аккаунт? 
+      a(href="/login") Войти

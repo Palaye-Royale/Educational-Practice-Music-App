@@ -1,0 +1,505 @@
+:root {
+  --bg-body: #FEBED3;
+  --bg-content: #FFE1E1;
+  --bg-header: #B80072;
+  --bg-nav: #FF7C80;
+  --bg-card: #F2F2F2;
+  --bg-card-accent: #CF52DC;
+  --bg-input: #FFF3F3;
+  --bg-input-label: #FFC9C9;
+  --bg-button-primary: #E4A1EC;
+  --bg-button-accent: #CF52DC;
+  --bg-delete-btn: #FF7C80;
+  --bg-cover-placeholder: #E4A1EC;
+
+  --text-color: #FFFFFF;
+  --text-dark: #333333;
+  --font-family: 'Calibri', 'Segoe UI', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Основной контейнер страницы */
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-body);
+  color: var(--text-color);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Контейнер для контента */
+.main-container {
+  max-width: 1200px;
+  width: 100%;
+  background-color: var(--bg-content);
+  border-radius: 0 0 10px 10px;
+  margin: 0 auto;
+  overflow: hidden;
+  flex: 1;  
+}
+
+.content-wrapper {
+  padding: 1.5rem;
+}
+
+/* Шапка */
+.header {
+  background-color: var(--bg-header);
+  padding: 0.8rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.header-wrapper {
+  width: 100%;
+  background-color: var(--bg-header);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+/* Кнопка входа и регистрации */
+.auth-btn {
+  background-color: var(--bg-button-primary);
+  color: var(--text-dark);
+  padding: 0.4rem 1.2rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.auth-btn:hover {
+  opacity: 0.8;
+}
+
+/* Навигация (Все треки, Избранное, Плейлисты) */
+.nav {
+  background-color: var(--bg-nav);
+  display: flex;
+  justify-content: stretch;
+  padding: 0;
+}
+
+.nav-link {
+  flex: 1;
+  text-align: center;
+  padding: 0.7rem 0;
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.nav-link.active {
+  background-color: var(--bg-card-accent);
+}
+
+.nav-link:hover:not(.active) {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Поиск */
+.search {
+  background-color: var(--bg-card);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.3rem 0.3rem 0.3rem 1rem;
+  flex: 2;
+  max-width: 600px;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 0.6rem 0;
+  font-size: 1rem;
+  outline: none;
+  font-family: var(--font-family);
+}
+
+.search-input::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+.search-btn {
+  background-color: var(--bg-button-primary);
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: var(--font-family);
+  transition: background-color 0.2s;
+}
+
+.search-btn:hover {
+  background-color: var(--bg-button-accent);
+  color: white;
+}
+
+/* Плейлист */
+.album-card {
+  background-color: var(--bg-card-accent);
+  border-radius: 5px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.album-cover {
+  width: 70px;
+  height: 70px;
+  background-color: var(--bg-cover-placeholder);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+.album-info {
+  flex: 1;
+}
+
+.album-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+}
+
+.album-tracks-count {
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+/* Трек */
+.tracks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.track-item {
+  background-color: var(--bg-card);
+  border-radius: 10px;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.track-cover {
+  width: 45px;
+  height: 45px;
+  background-color: var(--bg-cover-placeholder);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.track-info {
+  flex: 1;
+}
+
+.track-title {
+  font-weight: bold;
+  color: var(--text-dark);
+  margin-bottom: 0.2rem;
+}
+
+.track-artist {
+  font-size: 0.8rem;
+  color: var(--text-dark);
+  opacity: 0.7;
+}
+
+/* Кнопки трека */
+.track-actions {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.track-actions button {
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: transform 0.1s, background-color 0.2s;
+  background-color: #CF52DC;
+  color: white;
+}
+
+/* Обложка трека */
+.track-cover-placeholder {
+  width: 45px;
+  height: 45px;
+  background-color: #E4A1EC;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.track-actions button:hover {
+  transform: scale(1.02);
+}
+
+.btn-play,
+.btn-fav,
+.btn-save,
+.btn-playlist {
+  background-color: var(--bg-card-accent);
+  color: white;
+}
+
+/* Кнопка удалить */
+.btn-delete,
+.remove-fav-btn,
+.remove-track-btn,
+.remove-from-playlist-btn,
+.delete-playlist-btn {
+  background-color: #FF7C80;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: transform 0.1s, background-color 0.2s;
+}
+
+.btn-delete:hover,
+.remove-fav-btn:hover,
+.remove-track-btn:hover,
+.remove-from-playlist-btn:hover,
+.delete-playlist-btn:hover {
+  transform: scale(1.02);
+  background-color: #e06a6a;
+}
+
+#playlistName {
+  position: relative;
+  display: inline-block;
+}
+
+/* Кнопка удаления плейлиста в карточке на странице /playlists */
+.playlist-card .delete-playlist-btn {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 0.5rem;
+}
+
+/* Плейлисты */
+.playlists-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.playlist-card {
+  background-color: var(--bg-card-accent);
+  border-radius: 15px;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.playlist-cover-placeholder {
+  width: 45px;
+  height: 45px;
+  background-color: #E4A1EC;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+.playlist-info {
+  flex: 1;
+}
+
+.playlist-cover {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.playlist-name {
+  font-weight: bold;
+  color: white;
+  margin-bottom: 0.2rem;
+}
+
+.playlist-count {
+  font-size: 0.8rem;
+  color: white;
+  opacity: 0.8;
+}
+
+.playlist-link {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  text-decoration: none;
+  color: white;
+  font-size: 0.85rem;
+  margin-left: 0.5rem;
+  white-space: nowrap;
+}
+
+.playlist-card .delete-playlist-btn {
+  width: 45px;
+  height: 45px;
+  background-color: #FF7C80;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  transition: transform 0.1s, background-color 0.2s;
+}
+
+.playlist-card .delete-playlist-btn:hover {
+  transform: scale(1.02);
+  background-color: #e06a6a;
+}
+
+/* Кнопка для создания плейлиста */
+.create-playlist-btn {
+  background-color: var(--bg-button-primary);
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: var(--font-family);
+  transition: background-color 0.2s;
+  margin-bottom: 1rem;
+  margin-top: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.create-playlist-btn:hover {
+  background-color: var(--bg-button-accent);
+  color: white;
+}
+
+/* Авторизация */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+}
+
+.auth-card {
+  background-color: #F9F9F9;
+  width: 100%;
+  max-width: 350px;
+  border-radius: 20px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.auth-title {
+  background-color: var(--bg-nav);
+  padding: 0.6rem;
+  border-radius: 40px;
+  margin-bottom: 1.5rem;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.input-group {
+  background-color: var(--bg-input);
+  border-radius: 40px;
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.input-label {
+  background-color: var(--bg-input-label);
+  padding: 0.6rem 1rem;
+  width: 80px;
+  text-align: center;
+  font-weight: bold;
+  color: var(--text-dark);
+}
+
+.input-group input {
+  flex: 1;
+  border: none;
+  padding: 0.6rem 1rem;
+  background: transparent;
+  outline: none;
+  font-family: var(--font-family);
+}
+
+.auth-btn-submit {
+  background-color: var(--bg-button-accent);
+  color: white;
+  border: none;
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 40px;
+  margin-top: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.auth-btn-submit:hover {
+  opacity: 0.9;
+}
+
+.auth-footer {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: var(--text-dark);
+}
+
+.auth-footer a {
+  color: var(--bg-header);
+  text-decoration: none;
+}

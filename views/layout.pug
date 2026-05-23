@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    title MyMusic
+    link(rel="stylesheet" href="/style.css")
+  body
+    .header-wrapper
+      .header
+        .logo MyMusic
+        .search
+          input#searchInput.search-input(type="text" placeholder="Введите название песни")
+          button#searchBtn.search-btn Найти
+        .auth-buttons
+          if user
+            span Привет, #{user.email}
+            button#logoutBtn.auth-btn Выйти
+          else
+            a.auth-btn(href="/login") Войти
+            a.auth-btn(href="/register") Регистрация
+
+    .main-container
+      .nav
+        a.nav-link(href="/tracks" class=(currentPage === 'tracks' ? 'active' : '')) Мои треки
+        a.nav-link(href="/favorites" class=(currentPage === 'favorites' ? 'active' : '')) Избранное
+        a.nav-link(href="/playlists" class=(currentPage === 'playlists' ? 'active' : '')) Плейлисты
+
+      .content-wrapper
+        block content
+        #searchResults(style="margin-top: 1rem;")
+
+    script(src="/script.js")
