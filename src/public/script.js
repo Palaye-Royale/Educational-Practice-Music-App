@@ -398,11 +398,14 @@ async function loadPlaylistTracks() {
   if (data.tracks?.length) {
     container.innerHTML = data.tracks.map(track => `
       <div class="track-item" data-id="${track.track_id}">
-       <div class="track-cover-placeholder"></div>
+        <div class="track-cover-placeholder"></div>
         <div class="track-info">
-          <strong>${escapeHtml(track.track_title)}</strong> — ${escapeHtml(track.track_artist)}
+          <div class="track-title">${escapeHtml(track.track_title)}</div>
+          <div class="track-artist">${escapeHtml(track.track_artist)}</div>
         </div>
-        <button class="remove-from-playlist-btn" data-playlist-id="${playlistId}" data-track-id="${track.track_id}">×</button>
+        <div class="track-actions">
+          <button class="remove-from-playlist-btn" data-playlist-id="${playlistId}" data-track-id="${track.track_id}">×</button>
+        </div>
       </div>
     `).join('')
     
